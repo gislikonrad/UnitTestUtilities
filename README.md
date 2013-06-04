@@ -53,5 +53,7 @@
 
  ```c#
  var argument = string.Empty;
- AssertAction.Throws<ArgumentException>(() => SomeMethodThatDoesntLikeStringEmpty(argument), e => e.Message == "We don't like empty strings, nulls are fine.");
+ AssertAction.Throws<ArgumentException>(
+	() => SomeMethodThatDoesntLikeStringEmpty(argument), 
+	e => e.Message == "We don't like empty strings, nulls are fine.");
  ```
