@@ -2,19 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestUtilities
 {
+	/// <summary>
+	/// Assert an action
+	/// </summary>
 	public static class AssertAction
 	{
+		/// <summary>
+		/// Assert that an action throws a certain type of exception
+		/// </summary>
+		/// <typeparam name="TException">The base type of exception wanted</typeparam>
+		/// <param name="action">The action to perform</param>
 		public static void Throws<TException>(Action action)
 			where TException : Exception
 		{
 			Throws<TException>(action, e => true);
 		}
 
+		/// <summary>
+		/// Assert that an action throws a certain type of exception and that it is predicated to a condition
+		/// </summary>
+		/// <typeparam name="TException">The base type of the exception wanted</typeparam>
+		/// <param name="action">The action to perform</param>
+		/// <param name="predicate">The condition the exception has to pass</param>
 		public static void Throws<TException>(Action action, Predicate<TException> predicate)
 			where TException : Exception
 		{

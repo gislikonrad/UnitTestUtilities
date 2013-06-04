@@ -4,16 +4,24 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestUtilities
 {
+	/// <summary>
+	/// Change the culture on the thread temporarily
+	/// </summary>
     public class Culture : IDisposable
     {
 		private CultureInfo _previousCulture = null;
 		private CultureInfo _previousUiCulture = null;
 
+		/// <summary>
+		/// Switch to the culture corresponding to the ietf language tag until this object is disposed
+		/// </summary>
+		/// <param name="ietfLanguageTag">An identifier in the form of xx-XX where 'xx' is the language identifier and 'XX' is the country identifier</param>
+		/// <param name="placement">Specify whether to change the CurrentCulture, the CurrentUiCulture, or both. Default is both</param>
+		/// <returns>Culture disposable object</returns>
 		public static IDisposable SwitchTo(string ietfLanguageTag, CulturePlacement placement = CulturePlacement.Both)
 		{
 			try
@@ -28,6 +36,12 @@ namespace UnitTestUtilities
 			}
 		}
 
+		/// <summary>
+		/// Switch to the culture corresponding to the ietf language tag until this object is disposed
+		/// </summary>
+		/// <param name="culture">A CultureInfo object</param>
+		/// <param name="placement">Specify whether to change the CurrentCulture, the CurrentUiCulture, or both. Default is both</param>
+		/// <returns>Culture disposable object</returns>
 		public static IDisposable SwitchTo(CultureInfo culture, CulturePlacement placement = CulturePlacement.Both)
 		{
 			return new Culture(culture, placement);
@@ -47,6 +61,9 @@ namespace UnitTestUtilities
 			}
 		}
 
+		/// <summary>
+		/// IDisposable.Dispose()
+		/// </summary>
 		public void Dispose()
 		{
 			if (_previousCulture != null)

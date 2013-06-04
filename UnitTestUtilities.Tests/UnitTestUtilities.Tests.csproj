@@ -53,6 +53,7 @@
     <Compile Include="AssertActionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CultureTests.cs" />
+    <Compile Include="AssertAnonymousTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnitTestUtilities\UnitTestUtilities.csproj">
