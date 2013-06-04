@@ -21,7 +21,7 @@
  }
  ```
 
-##### Change only the CurrentUICulture to en-CA
+##### Change only the CurrentUICulture to English (Canada)
  ```c#
  using(Culture.SwitchTo("en-CA", CulturePlacement.ThreadUiCulture))
  {
@@ -29,7 +29,7 @@
  }
  ```
 
-##### Change only the CurrentCulture to en-US
+##### Change only the CurrentCulture to English (US)
  ```c#
  using(Culture.SwitchTo("en-US", CulturePlacement.ThreadCulture))
  {
