@@ -37,8 +37,7 @@ namespace UnitTestUtilities
 			{
 				if (!actual.ContainsKey(pair.Key))
 					Assert.Fail("Expected a property called {0} but found none.", pair.Key);
-				if (!pair.Value.Equals(actual[pair.Key]))
-					Assert.Fail("Expected value <{0}> in {1}, but found <{2}>", pair.Value, pair.Key, actual[pair.Key]);
+				Assert.AreEqual(pair.Value, actual[pair.Key]);
 			}
 		}
 	}
@@ -47,6 +46,7 @@ namespace UnitTestUtilities
 	{
 		internal static IDictionary<string, object> ToDictionary(this object obj)
 		{
+			if (obj == null) return new Dictionary<string, object>();
 			return obj
 				.GetType()
 				.GetProperties()
