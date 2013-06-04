@@ -53,9 +53,9 @@
 	e => e.Message == "We don't like empty strings, nulls are fine.");
  ```
  
- ### AssertAnonymous
+### AssertAnonymous
  
- ##### Assert that an anonymous object has certain properties with certain values
+##### Assert that an anonymous object has certain properties with certain values
  ```c#
  var anonymous = SomeMethodThatReturnsAnObject();
  AssertAnonymous.ContainsAll(new { Id = 0, Name = "First" }, anonymous);
