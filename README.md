@@ -14,7 +14,6 @@
 ### Culture
 
 ##### Change to English (UK)
-
  ```c#
  using(Culture.SwitchTo("en-GB"))
  {
@@ -23,7 +22,6 @@
  ```
 
 ##### Change only the CurrentUICulture to en-CA
-
  ```c#
  using(Culture.SwitchTo("en-CA", CulturePlacement.ThreadUiCulture))
  {
@@ -32,7 +30,6 @@
  ```
 
 ##### Change only the CurrentCulture to en-US
-
  ```c#
  using(Culture.SwitchTo("en-US", CulturePlacement.ThreadCulture))
  {
@@ -43,14 +40,12 @@
 ### AssertAction
 
 ##### Assert a method throws an exception
-
  ```c#
  var argument = string.Empty;
  AssertAction.Throws<ArgumentException>(() => SomeMethodThatDoesntLikeStringEmpty(argument));
  ```
  
 ##### Assert a method throws an exception and passes a predicate
-
  ```c#
  var argument = string.Empty;
  AssertAction.Throws<ArgumentException>(
